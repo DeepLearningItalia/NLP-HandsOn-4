@@ -1,0 +1,82 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - identification
+  - guests_names
+  - room_booking
+  - greet_ita
+
+entities:
+- name
+- email
+- town
+- age
+- hotel
+
+slots:
+  name:
+    type: text
+  email:
+    type: text
+  town:
+    type: text
+  age:
+    type: text
+  hotel:
+    type: text
+
+responses:
+  utter_identification:
+  - text: "I would need some info to understand who am I talking to. Can you please tell me your name and email?"
+
+  utter_acknowledge_identification:
+  - text: "Thank you {name}!"
+
+  utter_greet:
+  - text: "Hey! Hi there!"
+
+  utter_what_to_do:
+  - text: "What can I do for you?"
+
+  utter_hotel:
+  - text: "Custom Action choose {hotel}!"
+
+  utter_aknowledge_town:
+  - text: "Ok I see you want to go to {town}!"
+
+  utter_acknowledge_guests:
+  - text: "Got it!"
+
+  utter_guests_names:
+  - text: "May I ask the names and the age of the guests?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+- action_hello_world
+- action_book_hotel
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

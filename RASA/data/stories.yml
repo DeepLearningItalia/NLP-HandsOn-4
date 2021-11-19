@@ -1,0 +1,59 @@
+version: "2.0"
+
+stories:
+
+- story: user identification
+  steps:
+  - intent: greet
+  - action: utter_greet 
+  - action: utter_identification
+  - intent: identification
+    entities:
+      - name
+      - email
+  - action: utter_acknowledge_identification
+  - action: action_hello_world
+
+- story: booking hotel room
+  steps:
+  - intent: greet_ita
+  - action: utter_greet 
+  - action: utter_what_to_do
+  - intent: room_booking
+    entities:
+      - town
+  - action: utter_aknowledge_town
+  - action: utter_guests_names
+  - intent: guests_names
+    entities:
+      - name
+      - age
+  #- action: utter_acknowledge_guests
+  - action: action_book_hotel
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
